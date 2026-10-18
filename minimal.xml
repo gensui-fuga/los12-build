@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<manifest>
+
+  <remote name="aosp" fetch="https://android.googlesource.com" review="https://android-review.googlesource.com" revision="refs/tags/android-12.1.0_r22" />
+  <remote name="los" fetch="https://github.com/LineageOS" review="https://review.lineageos.org" />
+  <remote name="gh" fetch="https://github.com/gensui-fuga" />
+
+  <default revision="refs/heads/lineage-19.1" remote="los" sync-c="true" sync-j="4" />
+
+  
+  <project path="build/make" name="android_build" remote="los">
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+  </project>
+  <project path="build/soong" name="android_build_soong" remote="los">
+    <linkfile src="root.bp" dest="Android.bp" />
+  </project>
+
+  
+  <project path="prebuilts/build-tools" name="android_prebuilts_build-tools" remote="los" clone-depth="1" />
+  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/sdk" name="platform/prebuilts/sdk" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/asuite" name="platform/prebuilts/asuite" remote="aosp" clone-depth="1" />
+
+  
+  <project path="frameworks/base" name="android_frameworks_base" remote="los" />
+  <project path="frameworks/native" name="android_frameworks_native" remote="los" />
+  <project path="frameworks/av" name="android_frameworks_av" remote="los" />
+  <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="los" />
+  <project path="frameworks/opt/net/wifi" name="platform/frameworks/opt/net/wifi" remote="aosp" />
+  <project path="frameworks/opt/net/voip" name="platform/frameworks/opt/net/voip" remote="aosp" />
+  <project path="frameworks/opt/setupwizard" name="platform/frameworks/opt/setupwizard" remote="aosp" />
+  <project path="frameworks/ex" name="platform/frameworks/ex" remote="aosp" />
+  <project path="frameworks/minikin" name="android_frameworks_minikin" remote="los" />
+  <project path="frameworks/multidex" name="platform/frameworks/multidex" remote="aosp" />
+  <project path="frameworks/layoutlib" name="platform/frameworks/layoutlib" remote="aosp" />
+  <project path="frameworks/rs" name="platform/frameworks/rs" remote="aosp" />
+  <project path="frameworks/wilhelm" name="platform/frameworks/wilhelm" remote="aosp" />
+  <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" remote="aosp" />
+  <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" remote="aosp" />
+  <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" remote="aosp" />
+  <project path="frameworks/hardware/interfaces" name="platform/frameworks/hardware/interfaces" remote="aosp" />
+  <project path="frameworks/libs/modules-utils" name="platform/frameworks/libs/modules-utils" remote="aosp" />
+  <project path="system/core" name="android_system_core" remote="los" />
+  <project path="system/sepolicy" name="android_system_sepolicy" remote="los" />
+  <project path="system/vold" name="android_system_vold" remote="los" />
+  <project path="system/keymaster" name="android_system_keymaster" remote="los" />
+  <project path="system/security" name="android_system_security" remote="los" />
+  <project path="system/bt" name="android_system_bt" remote="los" />
+  <project path="system/netd" name="android_system_netd" remote="los" />
+  <project path="system/connectivity/wificond" name="android_system_connectivity_wificond" remote="los" />
+  <project path="system/extras" name="android_system_extras" remote="los" />
+  <project path="system/gatekeeper" name="platform/system/gatekeeper" remote="aosp" />
+  <project path="system/hardware/interfaces" name="platform/system/hardware/interfaces" remote="aosp" />
+  <project path="system/libfmq" name="android_system_libfmq" remote="los" />
+  <project path="system/libhidl" name="android_system_libhidl" remote="los" />
+  <project path="system/libhwbinder" name="platform/system/libhwbinder" remote="aosp" />
+  <project path="system/libufdt" name="android_system_libufdt" remote="los" />
+  <project path="system/libvintf" name="platform/system/libvintf" remote="aosp" />
+  <project path="system/libziparchive" name="android_system_libziparchive" remote="los" />
+  <project path="system/logging" name="android_system_logging" remote="los" />
+  <project path="system/media" name="android_system_media" remote="los" />
+  <project path="system/nfc" name="android_system_nfc" remote="los" />
+  <project path="system/nvram" name="platform/system/nvram" remote="aosp" />
+  <project path="system/server_configurable_flags" name="platform/system/server_configurable_flags" remote="aosp" />
+  <project path="system/timezone" name="android_system_timezone" remote="los" />
+  <project path="system/tools/aidl" name="platform/system/tools/aidl" remote="aosp" />
+  <project path="system/tools/hidl" name="platform/system/tools/hidl" remote="aosp" />
+  <project path="system/tools/mkbootimg" name="android_system_tools_mkbootimg" remote="los" />
+  <project path="system/update_engine" name="android_system_update_engine" remote="los" />
+  <project path="system/ca-certificates" name="android_system_ca-certificates" remote="los" />
+  <project path="system/chre" name="platform/system/chre" remote="aosp" />
+  <project path="system/unwinding" name="platform/system/unwinding" remote="aosp" />
+  <project path="system/incremental_delivery" name="android_system_incremental_delivery" remote="los" />
+  <project path="system/libbase" name="platform/system/libbase" remote="aosp" />
+  <project path="system/libprocinfo" name="platform/system/libprocinfo" remote="aosp" />
+  <project path="system/libsysprop" name="platform/system/libsysprop" remote="aosp" />
+  <project path="system/memory/libion" name="platform/system/memory/libion" remote="aosp" />
+  <project path="system/memory/libmeminfo" name="platform/system/memory/libmeminfo" remote="aosp" />
+  <project path="system/memory/libmemtrack" name="platform/system/memory/libmemtrack" remote="aosp" />
+  <project path="system/memory/libmemunreachable" name="platform/system/memory/libmemunreachable" remote="aosp" />
+  <project path="system/linkerconfig" name="platform/system/linkerconfig" remote="aosp" />
+
+  
+  <project path="art" name="platform/art" remote="aosp" />
+  <project path="bionic" name="android_bionic" remote="los" />
+  <project path="bootable/recovery" name="android_bootable_recovery" remote="los" />
+
+  
+  <project path="hardware/interfaces" name="android_hardware_interfaces" remote="los" />
+  <project path="hardware/libhardware" name="android_hardware_libhardware" remote="los" />
+  <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" remote="aosp" />
+
+  
+  <project path="hardware/qcom/display" name="android_hardware_qcom_display" remote="los" />
+  <project path="hardware/qcom/audio" name="android_hardware_qcom_audio" remote="los" />
+  <project path="hardware/qcom/media" name="android_hardware_qcom_media" remote="los" />
+  <project path="hardware/qcom/wlan" name="android_hardware_qcom_wlan" remote="los" />
+  <project path="hardware/google/av" name="platform/hardware/google/av" remote="aosp" />
+  <project path="hardware/google/interfaces" name="platform/hardware/google/interfaces" remote="aosp" />
+  <project path="hardware/google/pixel" name="android_hardware_google_pixel" remote="los" />
+
+  
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="los" />
+  <project path="packages/apps/SetupWizard" name="android_packages_apps_SetupWizard" remote="los" />
+  <project path="packages/apps/Bluetooth" name="android_packages_apps_Bluetooth" remote="los" />
+  <project path="packages/apps/Nfc" name="android_packages_apps_Nfc" remote="los" />
+  <project path="packages/apps/CellBroadcastReceiver" name="android_packages_apps_CellBroadcastReceiver" remote="los" />
+  <project path="packages/apps/Dialer" name="android_packages_apps_Dialer" remote="los" />
+  <project path="packages/apps/DocumentsUI" name="android_packages_apps_DocumentsUI" remote="los" />
+  <project path="packages/apps/DeskClock" name="android_packages_apps_DeskClock" remote="los" />
+  <project path="packages/apps/EmergencyInfo" name="android_packages_apps_EmergencyInfo" remote="los" />
+  <project path="packages/apps/Etar" name="android_packages_apps_Etar" remote="los" />
+  <project path="packages/apps/Gallery2" name="android_packages_apps_Gallery2" remote="los" />
+  <project path="packages/apps/HTMLViewer" name="platform/packages/apps/HTMLViewer" remote="aosp" />
+  <project path="packages/apps/KeyChain" name="android_packages_apps_KeyChain" remote="los" />
+  <project path="packages/apps/Messaging" name="android_packages_apps_Messaging" remote="los" />
+  <project path="packages/apps/PhoneCommon" name="platform/packages/apps/PhoneCommon" remote="aosp" />
+  <project path="packages/apps/Provision" name="platform/packages/apps/Provision" remote="aosp" />
+  <project path="packages/apps/SafetyRegulatoryInfo" name="platform/packages/apps/SafetyRegulatoryInfo" remote="aosp" />
+  <project path="packages/apps/SecureElement" name="platform/packages/apps/SecureElement" remote="aosp" />
+  <project path="packages/apps/Stk" name="android_packages_apps_Stk" remote="los" />
+  <project path="packages/apps/Tag" name="android_packages_apps_Tag" remote="los" />
+  <project path="packages/apps/ThemePicker" name="android_packages_apps_ThemePicker" remote="los" />
+  <project path="packages/apps/Trebuchet" name="android_packages_apps_Trebuchet" remote="los" />
+  <project path="packages/apps/Updater" name="android_packages_apps_Updater" remote="los" />
+  <project path="packages/apps/WallpaperPicker2" name="android_packages_apps_WallpaperPicker2" remote="los" />
+  <project path="packages/apps/CarrierConfig" name="platform/packages/apps/CarrierConfig" remote="aosp" />
+  <project path="packages/apps/Contacts" name="android_packages_apps_Contacts" remote="los" />
+  <project path="packages/apps/ExactCalculator" name="android_packages_apps_ExactCalculator" remote="los" />
+  <project path="packages/inputmethods/LatinIME" name="android_packages_inputmethods_LatinIME" remote="los" />
+  <project path="packages/providers/DownloadProvider" name="android_packages_providers_DownloadProvider" remote="los" />
+  <project path="packages/providers/MediaProvider" name="android_packages_providers_MediaProvider" remote="los" />
+  <project path="packages/providers/TelephonyProvider" name="android_packages_providers_TelephonyProvider" remote="los" />
+  <project path="packages/providers/ContactsProvider" name="android_packages_providers_ContactsProvider" remote="los" />
+  <project path="packages/providers/CalendarProvider" name="android_packages_providers_CalendarProvider" remote="los" />
+  <project path="packages/providers/BlockedNumberProvider" name="android_packages_providers_BlockedNumberProvider" remote="los" />
+  <project path="packages/providers/BookmarkProvider" name="android_packages_providers_BookmarkProvider" remote="los" />
+  <project path="packages/providers/CallLogProvider" name="android_packages_providers_CallLogProvider" remote="los" />
+  <project path="packages/providers/UserDictionaryProvider" name="platform/packages/providers/UserDictionaryProvider" remote="aosp" />
+  <project path="packages/providers/TvProvider" name="platform/packages/providers/TvProvider" remote="aosp" />
+  <project path="packages/screensavers/Basic" name="platform/packages/screensavers/Basic" remote="aosp" />
+  <project path="packages/screensavers/PhotoTable" name="android_packages_screensavers_PhotoTable" remote="los" />
+  <project path="packages/services/AlternativeNetworkAccess" name="platform/packages/services/AlternativeNetworkAccess" remote="aosp" />
+  <project path="packages/services/BuiltInPrintService" name="android_packages_services_BuiltInPrintService" remote="los" />
+  <project path="packages/services/Car" name="platform/packages/services/Car" remote="aosp" />
+  <project path="packages/services/Mms" name="android_packages_services_Mms" remote="los" />
+  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="los" />
+  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="los" />
+  <project path="packages/wallpapers/LivePicker" name="android_packages_wallpapers_LivePicker" remote="los" />
+  <project path="packages/modules/NetworkStack" name="platform/packages/modules/NetworkStack" remote="aosp" />
+  <project path="packages/modules/CaptivePortalLogin" name="platform/packages/modules/CaptivePortalLogin" remote="aosp" />
+  <project path="packages/modules/DnsResolver" name="android_packages_modules_DnsResolver" remote="los" />
+  <project path="packages/modules/Wifi" name="android_packages_modules_Wifi" remote="los" />
+  <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" remote="los" />
+  <project path="packages/modules/SdkExtensions" name="platform/packages/modules/SdkExtensions" remote="aosp" />
+  <project path="packages/modules/Permission" name="android_packages_modules_Permission" remote="los" />
+
+  
+  <project path="external/icu" name="android_external_icu" remote="los" />
+  <project path="external/selinux" name="platform/external/selinux" remote="aosp" />
+  <project path="external/e2fsprogs" name="android_external_e2fsprogs" remote="los" />
+  <project path="external/f2fs-tools" name="platform/external/f2fs-tools" remote="aosp" />
+  <project path="external/squashfs-tools" name="platform/external/squashfs-tools" remote="aosp" />
+  <project path="external/expat" name="android_external_expat" remote="los" />
+  <project path="external/freetype" name="android_external_freetype" remote="los" />
+  <project path="external/libpng" name="android_external_libpng" remote="los" />
+  <project path="external/zlib" name="android_external_zlib" remote="los" />
+  <project path="external/lz4" name="platform/external/lz4" remote="aosp" />
+  <project path="external/zstd" name="android_external_zstd" remote="los" />
+  <project path="external/brotli" name="platform/external/brotli" remote="aosp" />
+  <project path="external/boringssl" name="platform/external/boringssl" remote="aosp" />
+  <project path="external/mksh" name="android_external_mksh" remote="los" />
+  <project path="external/toybox" name="platform/external/toybox" remote="aosp" />
+  <project path="external/sqlite" name="android_external_sqlite" remote="los" />
+  <project path="external/eigen" name="platform/external/eigen" remote="aosp" />
+  <project path="external/flac" name="platform/external/flac" remote="aosp" />
+  <project path="external/libvpx" name="android_external_libvpx" remote="los" />
+  <project path="external/libxml2" name="android_external_libxml2" remote="los" />
+  <project path="external/libxkbcommon" name="platform/external/libxkbcommon" remote="aosp" />
+  <project path="external/libyuv" name="platform/external/libyuv" remote="aosp" />
+  <project path="external/protobuf" name="platform/external/protobuf" remote="aosp" />
+  <project path="external/skia" name="android_external_skia" remote="los" />
+  <project path="external/tinyalsa" name="platform/external/tinyalsa" remote="aosp" />
+  <project path="external/tinyxml2" name="platform/external/tinyxml2" remote="aosp" />
+  <project path="external/vulkan-headers" name="platform/external/vulkan-headers" remote="aosp" />
+  <project path="external/webp" name="android_external_webp" remote="los" />
+  <project path="external/wpa_supplicant_8" name="android_external_wpa_supplicant_8" remote="los" />
+  <project path="external/clang" name="platform/external/clang" remote="aosp" clone-depth="1" />
+
+  
+  <project path="hardware/ril" name="android_hardware_ril" remote="los" />
+
+  
+  <project path="device/chinatelecom/ARES" name="lineageos_ums9620" remote="gh" revision="master" />
+  <project path="kernel/chinatelecom/ARES" name="tianyi-kernel-ums9620" remote="gh" revision="main" />
+  <project path="external/libjpeg-turbo" name="android_external_libjpeg-turbo" remote="los" />
+  
+  <project path="vendor/lineage" name="android_vendor_lineage" remote="los" revision="refs/heads/lineage-19.1" />
+<project path="build/bazel" name="platform/build/bazel" remote="aosp" /><project path="build/blueprint" name="platform/build/blueprint" remote="aosp" /><project path="build/pesto" name="platform/build/pesto" remote="aosp" /><project path="prebuilts/go/linux-x86" name="platform/prebuilts/go/linux-x86" remote="aosp" /><project path="external/golang-protobuf" name="platform/external/golang-protobuf" remote="aosp" /><project path="prebuilts/vndk/v30" name="platform/prebuilts/vndk/v30" remote="aosp" clone-depth="1" /><project path="prebuilts/vndk/v28" name="platform/prebuilts/vndk/v28" remote="aosp" clone-depth="1" /><project path="prebuilts/vndk/v29" name="platform/prebuilts/vndk/v29" remote="aosp" clone-depth="1" /><project path="prebuilts/vndk/v31" name="platform/prebuilts/vndk/v31" remote="aosp" clone-depth="1" /><project path="external/starlark-go" name="platform/external/starlark-go" remote="aosp" /><project path="kernel/configs" name="android_kernel_configs" remote="los" /><project path="external/flatbuffers" name="platform/external/flatbuffers" remote="aosp" /><project path="external/libdrm" name="platform/external/libdrm" remote="aosp" /><project path="external/llvm" name="platform/external/llvm" remote="aosp" /><project path="external/swiftshader" name="platform/external/swiftshader" remote="aosp" /><project path="frameworks/proto_logging" name="platform/frameworks/proto_logging" remote="aosp" /><project path="libnativehelper" name="platform/libnativehelper" remote="aosp" /><project path="packages/modules/ArtPrebuilt" name="platform/packages/modules/ArtPrebuilt" remote="aosp" /><project path="packages/modules/BootPrebuilt/5.4/arm64" name="platform/packages/modules/BootPrebuilt/5.4/arm64" remote="aosp" /><project path="packages/modules/BootPrebuilt/5.10/arm64" name="platform/packages/modules/BootPrebuilt/5.10/arm64" remote="aosp" /><project path="packages/modules/Cronet" name="platform/packages/modules/Cronet" remote="aosp" /><project path="packages/modules/ExtServices" name="platform/packages/modules/ExtServices" remote="aosp" /><project path="packages/modules/GeoTZ" name="platform/packages/modules/GeoTZ" remote="aosp" /><project path="packages/modules/Gki" name="platform/packages/modules/Gki" remote="aosp" /><project path="packages/modules/IPsec" name="platform/packages/modules/IPsec" remote="aosp" /><project path="packages/modules/ModuleMetadata" name="platform/packages/modules/ModuleMetadata" remote="aosp" /><project path="packages/modules/NetworkPermissionConfig" name="platform/packages/modules/NetworkPermissionConfig" remote="aosp" /><project path="packages/modules/RuntimeI18n" name="platform/packages/modules/RuntimeI18n" remote="aosp" /><project path="packages/modules/Scheduling" name="platform/packages/modules/Scheduling" remote="aosp" /><project path="packages/modules/TestModule" name="platform/packages/modules/TestModule" remote="aosp" /><project path="packages/modules/Virtualization" name="platform/packages/modules/Virtualization" remote="aosp" /><project path="packages/modules/vndk" name="platform/packages/modules/vndk" remote="aosp" /><project path="pdk" name="platform/pdk" remote="aosp" /><project path="prebuilts/clang-tools" name="platform/prebuilts/clang-tools" remote="aosp" /><project path="system/apex" name="platform/system/apex" remote="aosp" /><project path="system/bpf" name="platform/system/bpf" remote="aosp" /><project path="system/bpfprogs" name="platform/system/bpfprogs" remote="aosp" /><project path="system/gsid" name="platform/system/gsid" remote="aosp" /><project path="system/hwservicemanager" name="platform/system/hwservicemanager" remote="aosp" /><project path="system/iorap" name="platform/system/iorap" remote="aosp" /><project path="system/libartpalette" name="platform/system/libartpalette" remote="aosp" /><project path="system/memory/libdmabufheap" name="platform/system/memory/libdmabufheap" remote="aosp" /><project path="system/memory/lmkd" name="platform/system/memory/lmkd" remote="aosp" /><project path="system/tools/sysprop" name="platform/system/tools/sysprop" remote="aosp" /><project path="system/tools/xsdc" name="platform/system/tools/xsdc" remote="aosp" /><project path="external/llvm-project" name="platform/external/llvm-project" remote="aosp" /><project path="prebuilts/rust" name="platform/prebuilts/rust" remote="aosp" /><project path="prebuilts/tools" name="platform/prebuilts/tools" remote="aosp" /></manifest>
